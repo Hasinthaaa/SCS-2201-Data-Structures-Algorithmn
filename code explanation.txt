@@ -1,0 +1,19 @@
+The code is a program that can find a pattern in a text using some special symbols('.','?','^','$') that can match different characters.
+
+The main function of the program reads the number of test cases from the user and calls the find_Pattern function for each test case. A test case is a pair of text and pattern files. The program opens the text and pattern files using ifstream objects and checks if they exist. If they do, it passes them to the find_Pattern function along with the test case number. If they don't, it prints an error message and continues to the next test case. The program closes the text and pattern files at the end of each test case.
+
+The find_Pattern function takes two input streams (text_file and pattern_file) and an output file number as parameters. It reads the first line from the pattern_file and stores it in a string variable called pattern_line. It also opens an output file using ofstream object and checks if it exists. If it doesn't, it prints an error message and returns.
+
+The function then reads the entire text_file and stores it in a string variable called text. It also declares two integer variables called line_number and position to keep track of the line and column numbers where the pattern is found. It also declares a boolean variable called Pattern_is_found to indicate if the pattern is found or not.
+
+The function then uses a for loop to iterate over each character of the text. For each character, it calls the match_Pattern function with four parameters: text, pattern_line, i, and 0. The i is the index of the current character in the text, and 0 is the index of the first character in the pattern_line. The match_Pattern function returns true if the pattern matches at that position, and false otherwise.
+
+If the match_Pattern function returns true, the function updates the position variable by subtracting the number of newline characters before the current character in the text. It also updates the line_number variable by counting the number of newline characters before the current character in the text. It then writes the line_number and position variables to the output file in the format (line,column). It also sets the Pattern_is_found variable to true.
+
+If the match_Pattern function returns false, the function does nothing and continues to the next character in the text.
+
+After the for loop ends, the function checks if the Pattern_is_found variable is false. If it is, it means that no match was found in the entire text. It then writes "No Match Found" to the output file.
+
+The function closes the output file at the end.
+
+The match_Pattern function takes four parameters: text_line, pattern_line, textPos, and patternPos. These are two strings and two integers that represent a part of
